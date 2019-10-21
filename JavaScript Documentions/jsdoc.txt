@@ -1,1 +1,85 @@
 JavaScript Documentions
+
+1).What is JavaScript?
+JavaScript was initially created to “make web pages alive”.
+The programs in this language are called scripts. They can be written right in a web page’s HTML and run automatically as the page loads.
+2).the JavaScript engine.
+Today, JavaScript can execute not only in the browser, but also on the server, or actually on any device that has a special program called the JavaScript engine.
+The browser has an embedded engine sometimes called a “JavaScript virtual machine”.
+3).How do engines work?
+->The engine (embedded if it’s a browser) reads (“parses”) the script.
+->Then it converts (“compiles”) the script to the machine language.
+->And then the machine code runs, pretty fast.
+4).What makes JavaScript unique?
+->Full integration with HTML/CSS.
+->Simple things are done simply.
+->Support by all major browsers and enabled by default.
+5).Code editors?
+->There are two main types of code editors: IDEs and lightweight editors.
+	1->IDE
+		->The term IDE (Integrated Development Environment) refers to a powerful editor with many features that usually operates on a “whole project.”
+		As the name suggests, it’s not just an editor, but a full-scale “development environment.”
+		*Visual Studio Code (cross-platform, free).
+		*WebStorm (cross-platform, paid).
+	2->	lightweight
+		->In practice, lightweight editors may have a lot of plugins including directory-level syntax analyzers and autocompleters,
+		so there’s no strict border between a lightweight editor and an IDE.
+		*Atom (cross-platform, free).
+		*Visual Studio Code (cross-platform, free).
+		*Sublime Text (cross-platform, shareware).
+		*Notepad++ (Windows, free).
+		*Vim and Emacs are also cool if you know how to use them.
+6).Developer console?
+But in the browser, users don’t see errors by default. So, if something goes wrong in the script, we won’t see what’s broken and can’t fix it.
+To see errors and get a lot of other useful information about scripts, “developer tools” have been embedded in browsers.
+7).If src is set, the script content is ignored.?
+->A single <script> tag can’t have both the src attribute and code inside.
+This won’t work:
+/*
+           <script src="file.js">
+			alert(1); // the content is ignored, because src is set
+			</script>
+*/
+->We must choose either an external <script src="…"> or a regular <script> with code.
+The example above can be split into two scripts to work:
+/*
+	<script src="file.js"></script>
+
+	<script>
+	alert(1);
+	</script>
+*/
+8).Semicolons?
+We recommend putting semicolons between statements even if they are separated by newlines. This rule is widely adopted by the community.
+ Let’s note once again – it is possible to leave out semicolons most of the time. But it’s safer – especially for a beginner – to use them.
+9).“use strict”?
+The directive looks like a string: "use strict" or 'use strict'. When it is located at the top of a script, the whole script works the “modern” way.
+10).Variable?
+A variable is a “named storage” for data. We can use variables to store goodies, visitors, and other data.
+->We can also declare two variables and copy data from one into the other.
+11).Data types
+->The number type represents both integer and floating point numbers.
+*A string
+->In JavaScript, there are 3 types of quotes.
+Double quotes: "Hello".
+Single quotes: 'Hello'.
+Backticks: `Hello`.
+->Double and single quotes are “simple” quotes. There’s no difference between them in JavaScript.
+->Backticks are “extended functionality” quotes. They allow us to embed variables and expressions into a string by wrapping them in ${…}, for example:
+12).Conditional operators: if, '?' ->
+->If Condition 
+We can use the if statement and the conditional operator ?, that’s also called a “question mark” operator.
+The if(...) statement evaluates a condition in parentheses and, if the result is true, executes a block of code.
+Your code block with curly braces {} every time you use an if statement, even if there is only one statement to execute.
+->else Condition
+The if statement may contain an optional “else” block. It executes when the condition is false.
+->Boolean conversion
+A number 0, an empty string "", null, undefined, and NaN all become false. Because of that they are called “falsy” values.
+13).Logical operators
+->There are three logical operators in JavaScript: || (OR), && (AND), ! (NOT).
+Can be applied to values of any type, not only boolean. 
+->"OR"
+The “OR” operator is represented with two vertical line symbols:
+In classical programming, the logical OR is meant to manipulate boolean values only. If any of its arguments are true, it returns true, otherwise it returns false.
+The result is always "true" except for the case when both operands are "false".
+For each operand, converts it to boolean. If the result is true, stops and returns the original value of that operand.
