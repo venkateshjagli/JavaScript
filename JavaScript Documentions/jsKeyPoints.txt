@@ -1,0 +1,89 @@
+->Variables ?
+	In a programming language, variables are used to store data values.
+	JavaScript uses the var keyword to declare variables
+->Data Types ?
+	JavaScript variables can hold many data types: numbers, strings, objects and more:
+->Functions ?
+	A JavaScript function is a block of code designed to perform a particular task.
+	A JavaScript function is executed when "something" invokes it (calls it).
+	JavaScript function is defined with the function keyword, followed by a name, followed by parentheses ().
+->Objects ?
+	In real life, a car is an object.
+->Properties ?
+ 	A car has properties like weight and color.
+->Methods ?
+	methods like start and stop.
+->Events ?
+	Event handlers can be used to handle, and verify, user input, user actions, and browser actions:
+	Action that should be performed when a user clicks a button
+->String ?
+	JavaScript strings are used for storing and manipulating text.
+->StringMethods ?
+	The two methods, indexOf() and search(), are equal?
+	slice(start, end)
+	substring(start, end)
+	substr(start, length)
+	substr() is similar to slice().
+	replace()
+	toUpperCase()
+	toLowerCase()
+	concat()
+	trim()
+	split()
+->Numbers ?
+	JavaScript has only one type of number. Numbers can be written with or without decimals.	
+	toString()	
+	toExponential()
+	toFixed()
+	toPrecision()
+	valueOf()
+	Number()
+	parseFloat()
+	parseInt()
+->Array ?
+	JavaScript arrays are used to store multiple values in a single variable.
+	An array is a special variable, which can hold more than one value at a time.
+->ArrayMethods	
+	toString()
+	join()
+	pop()
+	push()
+	shift()
+	unshift()
+	splice()
+	concat()
+	slice()
+->ArraySort
+	sort()
+	reverse()
+	Math.max.apply()
+	Math.min.apply()
+-ArrayIteration
+	forEach()
+	map()
+	filter()
+	reduce()
+	reduceRight()
+	every()
+	some()
+	find()
+	findIndex()
+		
+->Math Object
+	The JavaScript Math object allows you to perform mathematical tasks on numbers.
+	Math.round()
+	Math.pow()
+	Math.sqrt()
+	Math.abs()
+	Math.ceil()
+	Math.floor()
+	Math.sin()
+	Math.cos()
+	Math.min() and Math.max()
+	Math.random()
+->Switch Statement
+	The switch statement is used to perform different actions based on different conditions.
+	Use the switch statement to select one of many code blocks to be executed.
+->Loop for
+	Loops can execute a block of code a number of times.
+	Loops are handy, if you want to run the same code over and over again, each time with a different value.
