@@ -83,9 +83,15 @@ The “OR” operator is represented with two vertical line symbols:
 In classical programming, the logical OR is meant to manipulate boolean values only. If any of its arguments are true, it returns true, otherwise it returns false.
 The result is always "true" except for the case when both operands are "false".
 For each operand, converts it to boolean. If the result is true, stops and returns the original value of that operand.
+If all operands have been evaluated (i.e. all were false), returns the last operand.
 ->&& (AND)
 The AND operator is represented with two ampersands &&:
 AND returns true if both operands are truthy and false otherwise:
+For each operand, converts it to a boolean. If the result is false, stops and returns the original value of that operand.
+If all operands have been evaluated (i.e. all were truthy), returns the last operand.
+-> ! NOT
+The boolean NOT operator is represented with an exclamation sign !.
+Converts the operand to boolean type: true/false.
 14).Loops
 outputting goods from a list one after another or just running the same code for each number from 1 to 10.
 ->While Loop
