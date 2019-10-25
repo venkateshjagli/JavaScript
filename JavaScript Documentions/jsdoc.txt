@@ -1,63 +1,136 @@
 ************JavaScript Documentions**************
+What is JavaScript?
 
-1).What is JavaScript?
-JavaScript was initially created to “make web pages alive”.
-The programs in this language are called scripts. They can be written right in a web page’s HTML and run automatically as the page loads.
-2).The JavaScript engine.
-Today, JavaScript can execute not only in the browser, but also on the server, or actually on any device that has a special program called the JavaScript engine.
+	a. JavaScript was initially created to “make web pages alive”.
+	b. Javascript (JS) is a scripting languages, primarily used on the Web. It is used to enhance HTML pages and is commonly found embedded in HTML code. JavaScript is an interpreted language. 
+		The programs in this language are called scripts. They can be written right in a web page’s HTML and run automatically as the page loads.
+	c. JavaScript became a fully independent language with its own specification called ECMAScript.
+	d. JavaScript can be run on any device that has a special program called the JavaScript engine.
+	e. JavaScript was initially created as a browser-only language, but is now used in many other environments as well.
+	f. JavaScript has a unique position as the most widely-adopted browser language with full integration with HTML/CSS.
+	g. There are many languages that get “transpiled” to JavaScript and provide certain features. 
+	h. The ECMA-262 specification contains the most in-depth, detailed and formalized information about JavaScript. It defines the language.
+
+References : 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript
+https://javascript.info/
+
+The JavaScript engine.
+
+JavaScript can execute not only in the browser, but also on the server, or actually on any device that has a special program called the JavaScript engine.
 The browser has an embedded engine sometimes called a “JavaScript virtual machine”.
-3).How do engines work?
-->The engine (embedded if it’s a browser) reads (“parses”) the script.
-->Then it converts (“compiles”) the script to the machine language.
-->And then the machine code runs, pretty fast.
-4).What makes JavaScript unique?
-->Full integration with HTML/CSS.
-->Simple things are done simply.
-->Support by all major browsers and enabled by default.
-5).Code editors?
-->There are two main types of code editors: IDEs and lightweight editors.
-	1->IDE
-		->The term IDE (Integrated Development Environment) refers to a powerful editor with many features that usually operates on a “whole project.”
-		As the name suggests, it’s not just an editor, but a full-scale “development environment.”
-		*Visual Studio Code (cross-platform, free).
-		*WebStorm (cross-platform, paid).
-	2->	lightweight
-		->In practice, lightweight editors may have a lot of plugins including directory-level syntax analyzers and autocompleters,
-		so there’s no strict border between a lightweight editor and an IDE.
-		*Atom (cross-platform, free).
-		*Visual Studio Code (cross-platform, free).
-		*Sublime Text (cross-platform, shareware).
-		*Notepad++ (Windows, free).
-		*Vim and Emacs are also cool if you know how to use them.
-6).Developer console?
-But in the browser, users don’t see errors by default. So, if something goes wrong in the script, we won’t see what’s broken and can’t fix it.
-To see errors and get a lot of other useful information about scripts, “developer tools” have been embedded in browsers.
-7).If src is set, the script content is ignored.?
-->A single <script> tag can’t have both the src attribute and code inside.
-This won’t work:
-/*
-           <script src="file.js">
-			alert(1); // the content is ignored, because src is set
-			</script>
-*/
-->We must choose either an external <script src="…"> or a regular <script> with code.
-The example above can be split into two scripts to work:
-/*
-	<script src="file.js"></script>
 
-	<script>
-	alert(1);
-	</script>
-*/
-8).Semicolons?
-We recommend putting semicolons between statements even if they are separated by newlines. This rule is widely adopted by the community.
- Let’s note once again – it is possible to leave out semicolons most of the time. But it’s safer – especially for a beginner – to use them.
-9).“use strict”?
-The directive looks like a string: "use strict" or 'use strict'. When it is located at the top of a script, the whole script works the “modern” way.
-10).Variable?
-A variable is a “named storage” for data. We can use variables to store goodies, visitors, and other data.
-->We can also declare two variables and copy data from one into the other.
-11).Data types
+Different engines :
+	a. V8 – Chrome and Opera.
+	b. SpiderMonkey – Firefox.
+	c. Trident, Chakra - IE - Internet Explorer
+	d. ChakraCore - MS Edge 
+	e. Nitro, SquirrelFish - Safari
+
+How do engines work?
+	a. The engine (embedded if it’s a browser) reads (“parses”) the script.
+	b. it converts (“compiles”) the script to the machine language.
+	c. the machine code runs, pretty fast.
+
+How Javascript works in browser ?
+JavaScript can do everything related to webpage manipulation, interaction with the user, and the webserver.
+
+	a. Add new HTML to the page, change the existing content, modify styles.
+	b. React to user actions, run on mouse clicks, pointer movements, key presses.
+	c.Send requests over the network to remote servers, download and upload files (so-called AJAX and COMET technologies).
+	d. Get and set cookies, ask questions to the visitor, show messages.
+	e. Remember the data on the client-side (“local storage”).
+
+What makes JavaScript unique?
+	a. Full integration with HTML/CSS.
+	b. Simple things are done simply.
+	c. Support by all major browsers and enabled by default.
+
+Languages over JavaScript ?
+Convert(transpiled) any other languages to JavaScript like TypeScript which can be written in TypeScript Language [Microsoft].
+ 	
+Code editors (IDE - Integrated Development Environment)?
+	a. IDE
+		1. Visual Studio Code (cross-platform, free).
+		2. WebStorm (cross-platform, paid).
+	b. Lightweight
+		1. Atom (cross-platform, free).
+		2. Visual Studio Code (cross-platform, free).
+		3. Sublime Text (cross-platform, shareware).
+		4. Notepad++ (Windows, free).
+		5. Vim and Emacs are also cool if you know how to use them.
+
+Developer console? Learn how debug code and contro keys to debug and check the data in console
+
+Script Tag :
+JavaScript programs can be inserted into any part of an HTML document with the help of the <script> tag.
+The <script> tag contains JavaScript code which is automatically executed when the browser processes the tag.
+
+		a. <script src="/path/to/script.js"></script>
+		
+		b. <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>
+		
+		d. Multitag script
+			<script src="/js/script1.js"></script>
+			<script src="/js/script2.js"></script>
+
+		e. A single <script> tag can’t have both the src attribute and code inside.
+				This won’t work:
+				/*
+						   <script src="file.js">
+							alert(1); // the content is ignored, because src is set
+							</script>
+				*/
+		f. We must choose either an external <script src="…"> or a regular <script> with code.
+				The example above can be split into two scripts to work:
+				/*
+					<script src="file.js"></script>
+
+					<script>
+					alert(1);
+					</script>
+				*/
+		g. The type and language attributes are not required. Older versins of HTML uses <script type='text/javascript' />, no more of this in newer versins of HTML [HTML5]
+		h. We can use a <script> tag to add JavaScript code to a page.
+		i. A script in an external file can be inserted with <script src="path/to/script.js"></script>
+		h. As a rule, only the simplest scripts are put into HTML. More complex ones reside in separate files. The benefit of a separate file is that the browser will download it and store it in its cache.
+			Other pages that reference the same script will take it from the cache instead of downloading it, so the file is actually downloaded only once. That reduces traffic and makes pages faster.
+
+Coding Standards ?
+We recommend putting semicolons between statements even if they are separated by newlines. 
+The error in the no-semicolon variant occurs because JavaScript does not assume a semicolon before square brackets [...].
+
+Differences between strict mode and the “default” mode ?
+1. The "use strict" directive switches the engine to the “modern” mode, changing the behavior of some built-in features.
+2. Strict mode is enabled by placing "use strict" at the top of a script or function. Several language features, like “classes” and “modules”, enable strict mode automatically.
+3. Strict mode is supported by all modern browsers.
+4. We recommended always starting scripts with "use strict". 
+
+Reserved Words : let, var, const,return, for, if, do, while, switch, function, etc
+
+Variable
+1. Variable is a “named storage” for data.
+2. The name must contain only letters, digits, or the symbols $ and _.
+3. The first character must not be a digit.
+	Examples :  
+			let userName;
+			let test123;
+4. Variables named apple and AppLE are two different variables.
+5. Non-Latin letters are allowed, but not recommended
+	a. let – is a modern variable declaration.
+		let message = 'Hello!'; 
+	b.var – is an old-school variable declaration.
+		var message = 'Hello!'; 
+	c. const – is like let, but the value of the variable can’t be changed.
+		const COLOR_RED = "#F00";
+
+Data types
+1. A variable in JavaScript can contain any data. A variable can at one moment be a string and at another be a number. Programming languages that allow such things are called “dynamically typed”
+Example : 
+	// no error
+	let message = "hello";
+	message = 123456;
+2. There are seven basic data types in JavaScript.
 ->The number type represents both integer and floating point numbers.
 *A string
 ->In JavaScript, there are 3 types of quotes.
