@@ -6,8 +6,8 @@ for (let index = 0; index < 3; index++) {
 var name = ["Venky", "Chandu", "Naresh", "Thimappa"];
 var text = " ";
 var i ;
-var str = name.search("c");
-console.log(str);
+//var str = name.search();
+//console.log(str);
 
 for(i=0; i<name.length; i++){
 text = name[i] ;
@@ -32,5 +32,14 @@ text = name[i] ;
 
 //Program loops 5 time this name 
 for(let i = 0; i < 5; i++){
-	console.log('Venkatesh');
+	//console.log('Venkatesh');
+}
+
+let mobile = ['MI', 'Vivo', 'Iphone', 'Oppo'];
+
+for(let i = 0; i < mobile.length; i++){
+	let value = mobile[i];
+	if (mobile[i].startsWith('M')) {
+		console.log(value);
+	}
 }

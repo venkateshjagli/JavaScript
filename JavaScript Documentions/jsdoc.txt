@@ -1,9 +1,9 @@
-JavaScript Documentions
+************JavaScript Documentions**************
 
 1).What is JavaScript?
 JavaScript was initially created to “make web pages alive”.
 The programs in this language are called scripts. They can be written right in a web page’s HTML and run automatically as the page loads.
-2).the JavaScript engine.
+2).The JavaScript engine.
 Today, JavaScript can execute not only in the browser, but also on the server, or actually on any device that has a special program called the JavaScript engine.
 The browser has an embedded engine sometimes called a “JavaScript virtual machine”.
 3).How do engines work?
@@ -66,7 +66,7 @@ Single quotes: 'Hello'.
 Backticks: `Hello`.
 ->Double and single quotes are “simple” quotes. There’s no difference between them in JavaScript.
 ->Backticks are “extended functionality” quotes. They allow us to embed variables and expressions into a string by wrapping them in ${…}, for example:
-12).Conditional operators: if, '?' ->
+12).Conditional operators: if, '?' -> or Ternary operators
 ->If Condition 
 We can use the if statement and the conditional operator ?, that’s also called a “question mark” operator.
 The if(...) statement evaluates a condition in parentheses and, if the result is true, executes a block of code.
@@ -105,3 +105,31 @@ This form of syntax should only be used when you want the body of the loop to ex
 ->For Loop
 The loop below runs alert(i) for i from 0 up to (but not including) 3:
 That is, begin executes once, and then it iterates: after each condition test, body and step are executed.
+->For In Loop
+
+->For Of Loop
+
+15).Switch statement
+A switch statement can replace multiple if checks.
+It gives a more descriptive way to compare a value with multiple variants.
+The switch has one or more case blocks and an optional default.
+If no case is matched then the default code is executed (if it exists).
+16).Function
+Functions are the main “building blocks” of the program. They allow the code to be called many times without repetition.
+This example clearly demonstrates one of the main purposes of functions: to avoid code duplication.
+->Local variables
+A variable declared inside a function is only visible inside that function.
+->Global variables
+Variables declared outside of any function, such as the outer userName in the code above, are called global.
+Global variables are visible from any function (unless shadowed by locals).
+->Parameters
+We can pass arbitrary data to functions using parameters (also called function arguments) .
+->Returning a value
+A function can return a value back into the calling code as the result.
+It is possible to use return without a value. That causes the function to exit immediately.
+A function with an empty return or without it returns undefined
+If a function does not return a value, it is the same as if it returns undefined:
+17).Strings
+In JavaScript, the textual data is stored as strings. There is no separate type for a single character.
+The internal format for strings is always UTF-16, it is not tied to the page encoding.
+Strings can be enclosed within either single quotes, double quotes or backticks:
