@@ -148,7 +148,7 @@ Your code block with curly braces {} every time you use an if statement, even if
 The if statement may contain an optional “else” block. It executes when the condition is false.
 ->Boolean conversion
 A number 0, an empty string "", null, undefined, and NaN all become false. Because of that they are called “falsy” values.
-13).Logical operators
+13).Logic`al operators
 ->There are three logical operators in JavaScript: || (OR), && (AND), ! (NOT).
 Can be applied to values of any type, not only boolean. 
 ->"OR"
