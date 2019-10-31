@@ -112,3 +112,28 @@ let num = '123';
 let num2 = Number(num);
 let num1 = 123;
 console.log(num2 + num1);
+
+
+//String Reverse
+let reverseString = 'venkatesh';
+console.log(reverseString);
+let split = reverseString.split('');
+console.log(split);
+let reverr = split.reverse();
+console.log(reverr);
+let stringReverse = reverr.join('');
+console.log(stringReverse);
+
+
+//Reverse String Using function
+function ReverseString(str) {
+    return str.split('').reverse().join('');
+}
+
+console.log('String Reverse : ' + ReverseString('eelgej'));
+
+console.log('String Reverse : ' + ReverseString('hsetakneV Jeglee'));
+
+let num3 = [5, 4, 3, 2, 1, 0];
+console.log(num3);
+console.log('Array Number Value Reverse : ' + num3.reverse());
