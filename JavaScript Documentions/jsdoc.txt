@@ -304,3 +304,93 @@ set.size – is the elements count.
 20).WeakMap and WeakSet
 As we know from the chapter Garbage collection, JavaScript engine stores a value in memory while it is reachable 
 (and can potentially be used).
+->WeakMap
+The first difference from Map is that WeakMap keys must be objects, not primitive values:
+Compare it with the regular Map example above. Now if john only exists as the key of WeakMap – it will be automatically deleted from the map (and memory).
+WeakMap does not support iteration and methods keys(), values(), entries(), so there’s no way to get all keys or values from it.
+WeakMap has only the following methods:
+weakMap.get(key)
+weakMap.set(key, value)
+weakMap.delete(key)
+weakMap.has(key)
+
+->WeakSet
+WeakSet behaves similarly:
+It is analogous to Set, but we may only add objects to WeakSet (not primitives).
+An object exists in the set while it is reachable from somewhere else.
+Like Set, it supports add, has and delete, but not size, keys() and no iterations.
+
+21).Object.keys, values, entries
+For plain objects, the following methods are available:
+
+Object.keys(obj) – returns an array of keys.
+Object.values(obj) – returns an array of values.
+Object.entries(obj) – returns an array of [key, value] pairs.
+
+21).Date and time
+Let’s meet a new built-in object: Date. It stores the date, time and provides methods for date/time management.
+we can use it to store creation/modification times, to measure time, or just to print out the current date.
+Creation
+Greenwich Mean Time (GMT) is often interchanged or confused with Coordinated Universal Time (UTC). But GMT is a time zone and UTC is a time standard.
+ The Royal Observatory in the UK. The Royal Observatory in Greenwich, London, United Kingdom.
+To create a new Date object call new Date() with one of the following arguments:
+->new Date()
+Without arguments – create a Date object for the current date and time:
+->new Date(milliseconds)
+Create a Date object with the time equal to number of milliseconds (1/1000 of a second) passed after the Jan 1st of 1970 UTC+0.
+->new Date(datestring)
+If there is a single argument, and it’s a string, then it is parsed automatically. The algorithm is the same as Date.parse uses, we’ll cover it later.
+->Setting date components
+->The following methods allow to set date/time components:
+setFullYear(year, [month], [date])
+setMonth(month, [date])
+setDate(date)
+setHours(hour, [min], [sec], [ms])
+setMinutes(min, [sec], [ms])
+setSeconds(sec, [ms])
+setMilliseconds(ms)
+setTime(milliseconds) (sets the whole date by milliseconds since 01.01.1970 UTC)
+->new Date(year, month, date, hours, minutes, seconds, ms)
+Create the date with the given components in the local time zone. Only the first two arguments are obligatory.
+The year must have 4 digits: 2013 is okay, 98 is not.
+The month count starts with 0 (Jan), up to 11 (Dec).
+The date parameter is actually the day of month, if absent then 1 is assumed.
+If hours/minutes/seconds/ms is absent, they are assumed to be equal 0.
+/*
+new Date(2011, 0, 1, 0, 0, 0, 0); // 1 Jan 2011, 00:00:00
+new Date(2011, 0, 1); // the same, hours etc are 0 by default
+*/
+The minimal precision is 1 ms (1/1000 sec):.
+->Access date components
+There are methods to access the year, month and so on from the Date object:
+getFullYear()
+Get the year (4 digits)
+getMonth()
+Get the month, from 0 to 11.
+getDate()
+Get the day of month, from 1 to 31, the name of the method does look a little bit strange.
+getHours(), getMinutes(), getSeconds(), getMilliseconds()
+Get the corresponding time components.
+->getDay()
+Get the day of week, from 0 (Sunday) to 6 (Saturday). The first day is always Sunday, in some countries that’s not so, but can’t be changed.
+->Besides the given methods, there are two special ones that do not have a UTC-variant:
+->getTime()
+Returns the timestamp for the date – a number of milliseconds passed from the January 1st of 1970 UTC+0.
+->getTimezoneOffset()
+Returns the difference between the local time zone and UTC, in minutes:
+/*
+// if you are in timezone UTC-1, outputs 60
+// if you are in timezone UTC+3, outputs -180
+alert( new Date().getTimezoneOffset() );
+*/
+->Autocorrection
+The autocorrection is a very handy feature of Date objects. We can set out-of-range values, and it will auto-adjust itself.
+/*
+let date = new Date(2013, 0, 32); // 32 Jan 2013 ?!?
+alert(date); // ...is 1st Feb 2013!
+*/
+->Date.now()
+If we only want to measure time, we don’t need the Date object.
+There’s a special method Date.now() that returns the current timestamp.
+It is semantically equivalent to new Date().getTime(), but it doesn’t create an intermediate Date object. So it’s faster and doesn’t put pressure on garbage collection.
+It is used mostly for convenience or when performance matters, like in games in JavaScript or other specialized applications.
