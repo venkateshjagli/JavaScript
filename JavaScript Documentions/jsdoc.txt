@@ -121,6 +121,9 @@ Variable
 		let message = 'Hello!'; 
 	b.var – is an old-school variable declaration.
 		var message = 'Hello!'; 
+		If a code block is inside a function, then var becomes a function-level variable:
+		var variables have no block scope, they are visible minimum at the function level.
+		var declarations are processed at function start (script start for globals).
 	c. const – is like let, but the value of the variable can’t be changed.
 		const COLOR_RED = "#F00";
 
@@ -448,6 +451,7 @@ JSON supports plain objects, arrays, strings, numbers, booleans, and null.
 JavaScript provides methods JSON.stringify to serialize into JSON and JSON.parse to read from JSON.
 Both methods support transformer functions for smart reading/writing.
 If an object has toJSON, then it is called by JSON.stringify.
+************* Advanced working with functions ***************
 23).Recursion and stack
 Recursion is a programming pattern that is useful in situations when a task can be naturally split into several tasks of the same kind, but simpler.
 Or when a task can be simplified into an easy action plus a simpler variant of the same task. Or, as we’ll see soon, to deal with certain data structures.
@@ -456,3 +460,145 @@ When a function solves a task, in the process it can call many other functions. 
 For something simple to start with – let’s write a function pow(x, n) that raises x to a natural power of n. In other words, multiplies x by itself n times.
 ->Iterative thinking: the for loop:
 ->Recursive thinking: simplify the task and call self:
+24)Rest parameters and spread operator
+->Rest parameters ...
+A function can be called with any number of arguments, no matter how it is defined.
+There will be no error because of “excessive” arguments. But of course in the result only the first two will be counted.
+The rest of the parameters can be included in the function definition by using three dots ... followed by the name of the array that will contain them. 
+The dots literally mean “gather the remaining parameters into an array”.
+Here the first two arguments go into variables and the rest go into titles array:
+25)Closure
+JavaScript is a very function-oriented language. It gives us a lot of freedom. A function can be created dynamically,
+ copied to another variable or passed as an argument to another function and called from a totally different place later.
+We know that a function can access variables outside of it, this feature is used quite often.
+But what happens when an outer variable changes? Does a function get the most recent value or the one that existed when the function was created?
+26)Global object
+The global object provides variables and functions that are available anywhere. By default, those that are built into the language or the environment.
+In a browser it is named window, for Node.js it is global, for other environments it may have another name.
+Recently, globalThis was added to the language, as a standardized name for a global object, that should be supported across all environments.
+ In some browsers, namely non-Chromium Edge, globalThis is not yet supported, but can be easily polyfilled.
+We’ll use window here, assuming that our environment is a browser. If your script may run in other environments, it’s better to use globalThis instead.
+->In a browser, global functions and variables declared with var (not let/const!) become the property of the global object:
+27)Function object, NFE
+In JavaScript, functions are objects.
+A good way to imagine functions is as callable “action objects”. We can not only call them, but also treat them as objects: add/remove properties, pass by reference etc.
+->The “name” property
+Function objects contain some useable properties.
+a function’s name is accessible as the “name” property:
+/*
+function sayHi() {
+  alert("Hi");
+}
+alert(sayHi.name); // sayHi
+*/
+->The “length” property
+There is another built-in property “length” that returns the number of function parameters.
+->Custom properties
+We can also add properties of our own.
+Here we add the counter property to track the total calls count:
+->Named Function Expression
+Named Function Expression, or NFE, is a term for Function Expressions that have a name.
+let’s take an ordinary Function Expression:
+Did we achieve anything here? What’s the purpose of that additional "func" name?
+First let’s note, that we still have a Function Expression. Adding the name "func" after function did not make it a Function Declaration, because it is still created as a part of an assignment expression.
+Adding such a name also did not break anything.
+->There are two special things about the name func, that are the reasons for it:
+It allows the function to reference itself internally.
+It is not visible outside of the function.
+Sometimes, when we need a reliable internal name, it’s the reason to rewrite a Function Declaration to Named Function Expression form
+28)The "new Function" syntax
+There’s one more way to create a function. It’s rarely used, but sometimes there’s no alternative.
+/*
+let func = new Function ([arg1, arg2, ...argN], functionBody);
+*/
+/*
+let sum = new Function('a', 'b', 'return a + b');
+alert( sum(1, 2) ); // 3
+*/
+new Function allows to turn any string into a function. For example, we can receive a new function from a server and then execute it:
+/*
+let str = ... receive the code from a server dynamically ...
+let func = new Function(str);
+func();
+*/
+It is used in very specific cases, like when we receive code from a server, or to dynamically compile a function from a template, in complex web-applications.
+->Closure
+Usually, a function remembers where it was born in the special property [[Environment]]. It references the Lexical Environment from where it’s created (we covered that in the chapter Closure).
+But when a function is created using new Function, its [[Environment]] is set to reference not the current Lexical Environment, but the global one.
+So if new Function had access to outer variables, it would be unable to find renamed userName.
+If new Function had access to outer variables, it would have problems with minifiers.
+Besides, such code would be architecturally bad and prone to errors.
+To pass something to a function, created as new Function, we should use its arguments.
+29)Scheduling: setTimeout and setInterval
+We may decide to execute a function not right now, but at a certain time later. That’s called “scheduling a call”.
+*There are two methods for it:
+->setTimeout allows us to run a function once after the interval of time.
+->setInterval allows us to run a function repeatedly, starting after the interval of time, then repeating continuously at that interval.
+These methods are not a part of JavaScript specification. But most environments have the internal scheduler and provide these methods. In particular, they are supported in all browsers and Node.js.
+->setTimeout
+/*
+let timerId = setTimeout(func|code, [delay], [arg1], [arg2], ...)
+*/
+->func|code
+Function or a string of code to execute. Usually, that’s a function. For historical reasons, a string of code can be passed, but that’s not recommended.
+->delay
+The delay before run, in milliseconds (1000 ms = 1 second), by default 0.
+->arg1, arg2…
+Arguments for the function (not supported in IE9-)
+->Pass a function, but don’t run it
+Novice developers sometimes make a mistake by adding brackets () after the function:
+/*
+// wrong!
+setTimeout(sayHi(), 1000);
+*/
+That doesn’t work, because setTimeout expects a reference to a function. And here sayHi() runs the function, and the result of its execution is passed to setTimeout.
+ In our case the result of sayHi() is undefined (the function returns nothing), so nothing is scheduled.
+->Canceling with clearTimeout
+A call to setTimeout returns a “timer identifier” timerId that we can use to cancel the execution.
+/*
+let timerId = setTimeout(...);
+clearTimeout(timerId);
+*/
+In the code below, we schedule the function and then cancel it (changed our mind). As a result, nothing happens:
+/*
+ let timerId = setTimeout(() => alert("never happens"), 1000);
+alert(timerId); // timer identifier
+clearTimeout(timerId);
+alert(timerId); // same identifier (doesn't become null after canceling)
+*/
+As we can see from alert output, in a browser the timer identifier is a number. In other environments, this can be something else. For instance, Node.js returns a timer object with additional methods.
+->setInterval
+The setInterval method has the same syntax as setTimeout:
+/*
+let timerId = setInterval(func|code, [delay], [arg1], [arg2], ...)
+*/
+All arguments have the same meaning. But unlike setTimeout it runs the function not only once, but regularly after the given interval of time.
+To stop further calls, we should call clearInterval(timerId).
+The following example will show the message every 2 seconds. After 5 seconds, the output is stopped:
+
+30)Function binding
+When passing object methods as callbacks, for instance to setTimeout, there’s a known problem: "losing this".
+->Losing “this”
+We’ve already seen examples of losing this. Once a method is passed somewhere separately from the object – this is lost.
+Here’s how it may happen with setTimeout:
+As we can see, the output shows not “John” as this.firstName, but undefined!
+That’s because setTimeout got the function user.sayHi, separately from the object. The last line can be rewritten as:
+The method setTimeout in-browser is a little special: it sets this=window for the function call (for Node.js, this becomes the timer object, but doesn’t really matter here).
+ So for this.firstName it tries to get window.firstName, which does not exist. In other similar cases, usually this just becomes undefined. 
+
+31)Arrow functions revisited
+Let’s revisit arrow functions.
+Arrow functions are not just a “shorthand” for writing small stuff. They have some very specific and useful features.
+JavaScript is full of situations where we need to write a small function that’s executed somewhere else.
+->arr.forEach(func) – func is executed by forEach for every array item.
+->setTimeout(func) – func is executed by the built-in scheduler.
+It’s in the very spirit of JavaScript to create a function and pass it somewhere.
+And in such functions we usually don’t want to leave the current context. That’s where arrow functions come in handy.
+->Arrow functions:
+Do not have this
+Do not have arguments
+Can’t be called with new
+They also don’t have super, but we didn’t study it yet. We will on the chapter Class inheritance
+That’s because they are meant for short pieces of code that do not have their own “context”, but rather work in the current one. And they really shine in that use case.
+
+
