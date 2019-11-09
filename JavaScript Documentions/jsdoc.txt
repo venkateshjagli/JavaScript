@@ -601,4 +601,59 @@ Can’t be called with new
 They also don’t have super, but we didn’t study it yet. We will on the chapter Class inheritance
 That’s because they are meant for short pieces of code that do not have their own “context”, but rather work in the current one. And they really shine in that use case.
 
+32)Property flags and descriptors
+As we know, objects can store properties.
+Until now, a property was a simple “key-value” pair to us. But an object property is actually a more flexible and powerful thing.
+In this chapter we’ll study additional configuration options, and in the next we’ll see how to invisibly turn them into getter/setter functions.
+->Property flags
+Object properties, besides a value, have three special attributes (so-called “flags”):
+-writable – if true, the value can be changed, otherwise it’s read-only.
+-enumerable – if true, then listed in loops, otherwise not listed.
+-configurable – if true, the property can be deleted and these attributes can be modified, otherwise not.
+We didn’t see them yet, because generally they do not show up. When we create a property “the usual way”, all of them are true. But we also can change them anytime.
+->The method Object.getOwnPropertyDescriptor allows to query the full information about a property.
+/*
+let descriptor = Object.getOwnPropertyDescriptor(obj, propertyName);
+*/
+-> Object.defineProperty.
+If the property exists, defineProperty updates its flags. Otherwise, it creates the property with the given value and flags; in that case, if a flag is not supplied, it is assumed false.
+For instance, here a property name is created with all falsy flags:
+->To change the flags, we can use Object.defineProperty.
+/*
+Object.defineProperty(obj, propertyName, descriptor)
+*/
 
+33)Property getters and setters
+The second type of properties is something new. It’s accessor properties. They are essentially functions that work on getting and setting a value,
+ but look like regular properties to an external code.
+->Getters and setters
+Accessor properties are represented by “getter” and “setter” methods. In an object literal they are denoted by get and set:
+/*
+let obj = {
+  get propName() {
+    // getter, the code executed on getting obj.propName
+  },
+
+  set propName(value) {
+    // setter, the code executed on setting obj.propName = value
+  }
+};
+*/
+->Accessor descriptors
+Descriptors for accessor properties are different from those for data properties.
+For accessor properties, there is no value or writable, but instead there are get and set functions.
+That is, an accessor descriptor may have:
+get – a function without arguments, that works when a property is read,
+set – a function with one argument, that is called when the property is set,
+enumerable – same as for data properties,
+configurable – same as for data properties.
+For instance, to create an accessor fullName with defineProperty, we can pass a descriptor with get and set:
+->Smarter getters/setters
+Getters/setters can be used as wrappers over “real” property values to gain more control over operations with them.
+For instance, if we want to forbid too short names for user, we can have a setter name and keep the value in a separate property _name:
+
+34)Prototypal inheritance
+In programming, we often want to take something and extend it.
+For instance, we have a user object with its properties and methods, and want to make admin and guest as slightly modified variants of it.
+ We’d like to reuse what we have in user, not copy/reimplement its methods, just build a new object on top of it.
+Prototypal inheritance is a language feature that helps in that.
