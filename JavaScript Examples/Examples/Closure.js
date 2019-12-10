@@ -3,8 +3,9 @@
 // The function sayHi uses an external variable name. When the function runs, which value is it going to use?
 
 let name = 'venky';
+
 function sayHi() {
     console.log('Hi ' + name);
- }
- name = 'chandu';
- sayHi();
+}
+name = 'chandu';
+sayHi();
