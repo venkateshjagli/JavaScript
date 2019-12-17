@@ -1,6 +1,6 @@
 let txt = "My name is Venkatesh Jegle"
 //includes()
-let str1 = txt.includes('na');
+let str1 = txt.includes('Ve');
 console.log(str1);
 
 //startsWith()

@@ -1,0 +1,4 @@
+*************  CLOSURE *************
+->Closure is an inner function that has access to outer function variables 
+*Global variable can be made local (private) with closure.
+
