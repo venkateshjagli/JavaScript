@@ -1,0 +1,109 @@
+{
+  "accountsInfo": [
+    {
+      "id": 1,
+      "name": "Venkatesh",
+      "age": 27,
+      "email": "venkateshjagli7@gmail.com",
+      "mobileNo": "9141142182",
+      "address": "Raichur"
+    },
+    {
+      "id": 2,
+      "name": "Kupendra Prasad",
+      "age": 28,
+      "email": "chandujagli7@gmail.com",
+      "mobileNo": "8792740039",
+      "address": "Raichur"
+    },
+    {
+      "id": 4,
+      "name": "Naresh Kumar JT",
+      "age": 27,
+      "email": "nareshjagli7@gmail.com",
+      "mobileNo": "9848022338",
+      "address": "Raichur"
+    },
+    {
+      "id": 3,
+      "name": "12333h",
+      "age": 28,
+      "email": "hbbbjbjb@gmail.com",
+      "mobileNo": "511111111",
+      "address": "Raichur"
+    },
+    {
+      "{\n        \"id\": 51,\n        \"name\": \"okjnknnksh\",\n        \"age\": 27,\n        \"email\": \"venkateshjagli7@gmail.com\",\n        \"mobileNo\": \"9141142182\",\n        \"address\": \"Raichur\"\n    }": "",
+      "id": 5
+    },
+    {
+      "id": 51,
+      "name": "okjnknnksh",
+      "age": 27,
+      "email": "venkateshjagli7@gmail.com",
+      "mobileNo": "9141142182",
+      "address": "Raichur"
+    },
+    {
+      "id": 61,
+      "name": "Rajesh",
+      "age": 28,
+      "email": "venkateshjagli7@gmail.com",
+      "mobileNo": "9141142182",
+      "address": "Chinthamani"
+    },
+    {
+      "x": "{\"table\":\"customers\",\"limit\":20}",
+      "id": 62
+    },
+    {
+      "x": "{\"table\":\"id\",\"limit\":20}",
+      "id": 63
+    },
+    {
+      "id": 64
+    },
+    {
+      "id": 65
+    },
+    {
+      "Venkates": [
+        {
+          "id": 1,
+          "name": "Venkatesh",
+          "age": 27,
+          "email": "venkateshjagli7@gmail.com",
+          "mobileNo": "9141142182",
+          "address": "Raichur"
+        }
+      ],
+      "Chandu": [
+        {
+          "id": 2,
+          "name": "Chandu",
+          "age": 28,
+          "email": "chandujagli7@gmail.com",
+          "mobileNo": "9141142182",
+          "address": "Raichur"
+        }
+      ],
+      "Naresh": [
+        {
+          "id": 3,
+          "name": "Naresh",
+          "age": 27,
+          "email": "nareshjagli7@gmail.com",
+          "mobileNo": "9141142182",
+          "address": "Raichur"
+        }
+      ],
+      "id": 66
+    },
+    {
+      "id": 67
+    },
+    {
+      "id": 68
+    }
+  ]
+}

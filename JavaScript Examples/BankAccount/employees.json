@@ -1,0 +1,36 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Jeglee",
+      "address": "Marathahalli",
+      "mobileNum": 9591679855,
+      "salary": 10000,
+      "age": 34
+    },
+    {
+      "id": 2,
+      "name": "Venky",
+      "address": "Marathahalli",
+      "mobileNum": 9591679855,
+      "salary": 10000,
+      "age": 28
+    },
+    {
+      "name": "Venky",
+      "address": "Marathahalli",
+      "mobileNum": 9591679855,
+      "salary": 10000,
+      "age": 28,
+      "id": 5
+    },
+    {
+      "name": "Narsimhalu",
+      "address": "Marathahalli",
+      "mobileNum": 9591679855,
+      "salary": 30000,
+      "age": 34,
+      "id": 6
+    }
+  ]
+}
